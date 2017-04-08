@@ -8,7 +8,7 @@ The scripts were designed with journalists, political and cultural researchers i
 - Looking Back at the U.S. Election 2016: A President, but for what Country? (coming soon)
 - Is the American Project Social or Economic? (coming soon)
 
-Feel free to contribute and let us know about your projects. The official page of the project will be updated with new contributors and researches: http://plural.world/political-footprints. And please reference it in your analysis. 
+Feel free to contribute and let us know about your projects. The official page of the project will be updated with new contributors and researches: http://plural.world/research/political-footprints. And please reference it in your analysis. 
 
 Finally, here are two papers for those interested to dig deeper in this family of techniques, getting into details of the assumptions being made, their pros and cons, and possible improvements.
 - Analysing Political Discourses Using Pre-Trained Word Vectors (computer/political sciences, coming soon)
@@ -21,11 +21,10 @@ In the words of Claude Lévi-Strauss:
 
 ## What is a political footprint?
 
-It is a vector based representation of a political discourse in which each vector represents a word, with optionally some properties attached to them, such as a relevance, sentiment, and emotion. The most powerful characteristic of these vector-based representations (or word embeddings) is that they locate words with similar meaning closer to one another. Political footprints provide thus a way to “map” a political standpoint expressed in a given context.
-Political footprints are focussing exclusively on what a statement or speaker says. It is thus very different from social media word clouds analsysis, such as for Google trends and twitter. The emphasis is on what a speaker has in his or her control.
- 
-Image of a political footprint
-Senator Sanders political footprint during the Democrats primaries debates - 2016 US election
+A political footprint is vector-based representation of a political discourse in which each vector represents a word, with optionally some properties attached, such as a relevance, sentiment, and emotion. It is a subclass of [word vector models](https://www.tensorflow.org/tutorials/word2vec) (or word embeddings) which have the property of locating words with similar meaning closer to one another. Political footprints provide thus a way to “map” semantically a political discourse.
+Political footprints are focussing exclusively on what a statement or speaker says. They are thus very different from popular social media word cloud analsysis that focus typically on twitter or news trends. The emphasis is on what a speaker has in his or her control.
+
+[[https://github.com/username/repository/blob/master/img/octocat.png|alt=octocat]]
 
 The current implementation of these political footprints is based on the following technologies:
 IBM Watson natural language understanding: returns a list of keywords and entities included in a text, with for each a relevance, sentiment, and emotion score.
