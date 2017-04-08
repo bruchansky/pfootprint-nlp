@@ -29,8 +29,8 @@ Political footprints are focussing exclusively on what a statement or speaker sa
 
 The current implementation political footprints is based on the following technologies:
 - [IBM Watson natural language understanding](https://www.ibm.com/watson/developercloud/natural-language-understanding.html): returns a list of keywords and entities included in a text, with for each a relevance, sentiment, and emotion score.
-- [GloVe](https://nlp.stanford.edu/projects/glove/) (Stanford University): english word vectors trained using Wikipedia (2014) and Gigaword 5 (2011). Using this model means that our results will be based on a 2014 snapshot of how words relate to one another. Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. GloVe: Global Vectors for Word Representation. [pdf](https://nlp.stanford.edu/pubs/glove.pdf) [bib](https://nlp.stanford.edu/pubs/glove.bib)
-- [Fasttext](https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md) (Facebook): alternative to GloVe useful for non-English texts. 
+- [GloVe](https://nlp.stanford.edu/projects/glove/) (Stanford University): english word vectors trained using Wikipedia (2014) and Gigaword 5 (2011). Using this model means that our results will be based on a 2014 snapshot of how words relate to one another. Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. GloVe: Global Vectors for Word Representation. [pdf](https://nlp.stanford.edu/pubs/glove.pdf) [bib](https://nlp.stanford.edu/pubs/glove.bib).
+- [Fasttext](https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md) (Facebook): alternative to GloVe useful for non-English texts. P. Bojanowski*, E. Grave*, A. Joulin, T. Mikolov, [Enriching Word Vectors with Subword Information](https://arxiv.org/abs/1607.04606).
 - [Tensorflow and Tensorboard](https://www.tensorflow.org/): Open-source software library for Machine Intelligence, particularly useful in our case for word embeddings visualization.
 - [Wordle](http://www.wordle.net/): free online tool to visualize cloud clouds.
 
@@ -39,49 +39,61 @@ This toolkit is multi-language, please consult IBM Watson and Fasttext documenta
 Examples below are based on 2016 U.S. elections. A transcript of all televised debates are available on the [The American Presidency Project](http://www.presidency.ucsb.edu/debates.php).
 
 ## Installation
-Our scripts are written in python. 
+Scripts are written in python and use primarly the tensorflow library. Tensorflow provides some good documentation on how to install both: [install python and tensorflow](https://www.tensorflow.org/install/).
+Once both are installed (using Virtualenv on Mac for instance), running the scripts will prompt you with an error message if any library is missing, which can be easily fixed using the sudo command. 
+In addition, you need to download and unzip the pretrained space vector model of your choice, for instance [glove.6B.zip](https://nlp.stanford.edu/projects/glove/) or [fasttext](https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md) and put the files in a folder of your choice.
 
-## Data format and tokenisation
-The first step is gather your data, clean it and format it so that it can be vectorised by tensorflow. Two scripts are provided to help you in this process: 
-You are provided with two scripts to prepare your data:
+## Text format and tokenisation
+The first step is gather your data, clean it and format it so that it can be vectorised using tensorflow. Examples of raw data is provided in the US-Elections-2016/debates directory (source: [The American Presidency Project](http://www.presidency.ucsb.edu/debates.php)).  Two scripts have been developed to help you in this process: 
 
-Step 1: parse html files using pfootprint-generate-texts.py (optional)
-Use this script if your data is in the form of html files, or if you deal with a corpus involving more than one contributor per text file. 
-python pfootprint-generate-texts.py -d US-elections-2016/Primary_Republicans/ -t debate
+### Step 1: parse html files using pfootprint-generate-texts.py (optional)
+Use this script if your data is in the form of html files, or if you deal with a corpus involving more than one contributor per data file. 
+'''python pfootprint-generate-texts.py -d US-elections-2016/Primary_Republicans/ -t debate'''
 
 Arguments:
--d: directory with all your html files
--t: type, either ‘debate’ or ‘declaration’. In case of a declaration, each html file produces one text file. In case of a debate, the script splits html files into individual contributions (assuming each contribution starts with the name of the contributor in bold), and creates one text file per contributor.
-Image step 1
+-d: directory with all your html files.
+-t: type, either "debate" or "declaration".
+In case of a declaration, each html file generates one text file. In case of a debate, the script splits html files into
+individual contributions (assuming each contribution starts with the name of the contributor in bold), and creates one text file per contributor.
 
-This script removes any instance in brakets such as applause, … because we want to focus on what a speakers says and not take into account people’s reactions.
+figure 1
 
-For debates, manually clean the text files afterwards:
-Delete contributions from moderators. We lose some important data in doing so, making it sometimes difficult to understand what declarations are about, but it’s the price to pay to analyze each candidates own words.
-Merge text files with name variations for the same contributors.
-Text filenames include the original html folder name so that you can perform this operation for several groups, for instance ‘Primary-Republicans’, ‘Primary-Democrats’, and ‘General-Election’. If you do so, bring at the end of the process all your text files into one single folder, for instance ‘text-files’.
-This script removes all 
-Step2: parse text files using pfootprint-generate-jsons.py
-The second step is to identify key terms in each text file, their importance, sentiment, and emotion attached. This script is using IBM Watson Natural Language Understanding in order to do so (30 days free trial), and create json files in a separate folder ‘json-footprints’. First edit it with your IBM Watson and password then use it as following:
+In case you are analyzing a debate, you need to manually clean the text files after running the script:
+- Merge files that might have resulted from a slightly different spelling of participant names.
+- Delete moderator files. We lose some important information in doing so, making it sometimes difficult to understand what answers from a candidate were about, but it’s the price to pay to take into account only candidates' own words.
+- The script names text files using their original folder name (i.e. "Primary_Democrats-SANDERS.txt"), so that we can group political footprints into subcategories, such as ‘Primary-Republicans’, ‘Primary-Democrats’, and ‘General-Election’. If you decide to do so, remember to copy all your text files into a single folder at the end of the process ("text-files" in our example).
+Note: The script removes any text within brakets such as "applause", "laugh", etc. We want to focus on what a speaker says and exlude any reaction from the public.
+
+### Step2: parse text files using pfootprint-generate-jsons.py
+The second step is to identify key terms in each text file, their relevance, sentiment and emotion attached. The script is using [IBM Watson natural language understanding](https://www.ibm.com/watson/developercloud/natural-language-understanding.html) in order to do so (30 days free trial available). Resulting json files are all saved in a separate folder "json-footprints". Please update your IBM Watson USERNAME and PASSWORD in the script before using it.
+'''python pfootprint-generate-jsons.py -d US-Elections-2016/'''
 Arguments:
--d: directory with all your text files 
+-d: project directory
 -l: language (default is 'en'), see IBM docs for supported languages
--u: url (optional) 
-IBM Watson truncates queries with texts larger than 50kb,
-a workaround is to upload your files on a server and to
-use their url instead (limit is 600kb).
+-u: url (optional)
+The script finds all .txt files in a directory (and its subdirectories) and create a "json-footprints" folder with .json files generated by IBM Watson. IBM Watson truncates queries with text files larger than 50kb, a workaround is to upload your files on a server and to use their url instead (limit is 600kb).
 
-Image process
-Using IBM Watson Natural Language Understanding is convenient because it allows to externalize this complex process to an API. It comes with a cost however that there is not much control, or understanding of how the terms are selected and ponderated. This step could be developed as part of the toolkit but it would require much more machine resources and time, without the garantee of achieving better results (candidate for future improvements). The scripts create two json files per text: one for its entities, and the other for its keywords. It’s not very clear how IBM Watson creates the two lists, the pfootprint.py script assumes however that entities are more relevant than keywords, and only consider keywords that were not in the entities list.
-Tests so far have shown results that correspond most of the time to the intuition of what important words were used in a speech (see below), but it’s not perfect.
+figure 2
+Notes:
+- Using IBM Watson is convenient but it comes with a cost. There is not much control or understanding of how the terms are selected and ponderated. A possible improvement would be to use some open source libraries.
+- Two json files are created per text: one for its entities, and the other for its keywords. It’s not clear how IBM Watson creates the two lists, and it is assumed that entities are more relevant than keywords (if a term exists in both lists, we only keep the entity version).
+
+It is at the stage already possible to make some analsysis. We have for instance compared key terms from 
 Example result kyoto
 Only joy or no feeling, a bit more negative for the kyoto protocole (greenhouse, carbon dioxide, antropohohenic) 
 Compare it to other protocols
-## Create political footprints with tensorflow
-At this stage, the only data that matters is the one stored in our JSON-footprint folder. We are now going to leverage this information using pre-trained word vectors. We do this by calling the following script
-Arguments
+## Create political footprints using tensorflow
+At this stage, the only data that matters are the json files we have stored in our JSON-footprint directory. We are now going to leverage this information using pre-trained word vectors. We do this by calling the following script:
+'''python pfootprint.py -d US-Elections-2016/ -p pretrained-models/glove.6B/glove.6B.300d.txt'''
+
+Arguments:
 -d: project directory
--p: pretrained file. GloVe has the advantage that you can quickly run the script for a relatively low word dimension (file, 50 dimensions), and increase it to 300 once you are satisfied with the results.
+-p: pretrained word vector model file (i.e. glove.6B.300d.txt)
+The script finds all .json files files in a directory (and its subdirectories) and creates, based on them, a model folder with all political footprints.
+
+Note: GloVe has the advantage that we can quickly run the script for a relatively low word dimension (50 dimensions), and increase it to 300 once you are satisfied with the results.
+
+This is it! 
 The script will create a model folder with all the information required to run tensorboard (visualisation tool):
 Tensorboard
 With:
