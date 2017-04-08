@@ -24,24 +24,24 @@ In the words of Claude Lévi-Strauss:
 A political footprint is vector-based representation of a political discourse in which each vector represents a word, with optionally some properties attached, such as a relevance, sentiment, and emotion. It is a subclass of [word vector models](https://www.tensorflow.org/tutorials/word2vec) (or word embeddings) which have the property of locating words with similar meaning closer to one another. Political footprints provide thus a way to “map” semantically a political discourse.
 Political footprints are focussing exclusively on what a statement or speaker says. They are thus very different from popular social media word cloud analsysis that focus typically on twitter or news trends. The emphasis is on what a speaker has in his or her control.
 
-[[https://github.com/Plural-thinktank/pfootprint/blob/master/images/footprints.png]]
+![political footprints](https://github.com/Plural-thinktank/pfootprint/blob/master/images/footprints.png)
+*From left to right: Sanders, Clinton, and Trump political footprints during U.S. election debates, with words similar to "people" highlighted*.
 
-The current implementation of these political footprints is based on the following technologies:
-IBM Watson natural language understanding: returns a list of keywords and entities included in a text, with for each a relevance, sentiment, and emotion score.
-University of Stanford’s GloVe (Global Vectors for Word Representation): english word vectors trained using Wikipedia (2014) and Gigaword 5 (2011). Using this representation means that our results will be based on a 2014 snapshot of how words relate to one another. This is an important limitation that is studied in details in the related paper, and has profound philosophical implications.
-Fasttext developed by facebook: (Creative Commons Attribution-Share-Alike License 3.0.): alternative to GloVe used for other languages than English, and based on the 2016 Wikipedia Corpus.
-Tensorflow and tensorboard: An open-source software library for Machine Intelligence.
-Wordle: free online tool to visualize cloud clouds.
+The current implementation political footprints is based on the following technologies:
+- [IBM Watson natural language understanding](https://www.ibm.com/watson/developercloud/natural-language-understanding.html): returns a list of keywords and entities included in a text, with for each a relevance, sentiment, and emotion score.
+- [GloVe](https://nlp.stanford.edu/projects/glove/) (Stanford University): english word vectors trained using Wikipedia (2014) and Gigaword 5 (2011). Using this model means that our results will be based on a 2014 snapshot of how words relate to one another. Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. GloVe: Global Vectors for Word Representation. [pdf](https://nlp.stanford.edu/pubs/glove.pdf) [bib](https://nlp.stanford.edu/pubs/glove.bib)
+- [Fasttext](https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md) (Facebook): alternative to GloVe useful for non-English texts. 
+- [Tensorflow and Tensorboard](https://www.tensorflow.org/): Open-source software library for Machine Intelligence, particularly useful in our case for word embeddings visualization.
+- [Wordle](http://www.wordle.net/): free online tool to visualize cloud clouds.
 
-This tool is multi-language, please have a look at IBM Watson and Fasttext to see if your language is supported. 
+This toolkit is multi-language, please consult IBM Watson and Fasttext documentation to see what languages are supported. 
 
-Use cases below are based on The American Presidency Project corpus.
+Examples below are based on 2016 U.S. elections. A transcript of all televised debates are available on the [The American Presidency Project](http://www.presidency.ucsb.edu/debates.php).
 
-Logos partners, multi language, works on PC, american debate
-Installation
-Many libraries inclusind watson, tensorflow
+## Installation
+Our scripts are written in python. 
 
-Data format and tokenisation
+## Data format and tokenisation
 The first step is gather your data, clean it and format it so that it can be vectorised by tensorflow. Two scripts are provided to help you in this process: 
 You are provided with two scripts to prepare your data:
 
@@ -77,7 +77,7 @@ Tests so far have shown results that correspond most of the time to the intuitio
 Example result kyoto
 Only joy or no feeling, a bit more negative for the kyoto protocole (greenhouse, carbon dioxide, antropohohenic) 
 Compare it to other protocols
-Create political footprints with tensorflow
+## Create political footprints with tensorflow
 At this stage, the only data that matters is the one stored in our JSON-footprint folder. We are now going to leverage this information using pre-trained word vectors. We do this by calling the following script
 Arguments
 -d: project directory
@@ -100,8 +100,8 @@ So what do we see? Words are located based on fairly mundane semantic: countries
 What’s important to understand, and what is really the value of these pre-trained words, is that no human has defined these clusters, they have been “guessed” by machines based on how frequently words occur together, either on wikipedia or other large corpus: artificial intelligence and deep learning incremental algorithms have been applied to these corpus to discover word associations. This is what allows for a relatively unbiased analysis of the political discourses. To be clear, there is a strong cultural biais: the one coming from how these words are used in wikipedia, news feeds, and that biais is specific to a language, a corpus, and the moment of record. But what we are close to achieve is no biais coming from the journalist or researcher performing this research.
 
 Let’s now look at how we can practically use this information, with the least possible personal interpretation. 
-Political footprint analysis
-Heuristic #1: main themes of a discourse and how they are articulated
+## Political footprint analysis
+### Heuristic #1: main themes of a discourse and how they are articulated
 Open the a discourse or candidate tsv file in the model folder, using Google sheets for instance. For instance, 
 Sort the words (themes) by relevance and take the top 5
 For each of these themes, look inside tensorboard what are the ten closest words for that candidate
@@ -118,19 +118,19 @@ See full example
 Climate change: NOT human (except removing change)
 Intergovernemental smaller, choice of vocabulary different, 
 
-Heuristic #2: compare how a theme is interpreted between different discourses
+### Heuristic #2: compare how a theme is interpreted between different discourses
 Open the tensorboard aggregated tensor and explore all the concepts and keywords used in a corpus (during an election)
 Choose one related to your study. Good candidates are relatively general and ambigious words that can be used in very different ways in each discourse (e.g. “ethical”, “principle”, “values”, “freedom” that can mean very different things)
 For that word, select in tensorboard the 20 closest words and in how many discourses each one has been used. Choose the ones the most relevant that you wish to analyze.
 Compare using the same steps as the heuristic how each discourse is using them.
 This heuristic is useful to identify real paradigm differences between discourses or candidates. The power in this heuristic is that it can compare any text and they don’t necessary have to use the same terms. Because we use a pre-trained word space, we can define the closest words between words being used in different contexts, without any explicit link in each. 
 
-Heurisitc #3: identify discourse styles and affinity
+### Heurisitc #3: identify discourse styles and affinity
 Open each discourse using tensorboard. Visualze them based on relevance, sentiment, anger, etc. and spot major differences.
 Go to the centroids section and compare how close each discourses are.
 This heuristic has been the less conclusive based on the current implementation. Some rough analysis can be done but are subject to criticism. For instance, looking at the relevance of the Sanders political footprint highlights the fact is has been very much focussed to wall street, in comparison to Trump or Hillary who have used a more diverse vcabulary. This is not working all the time though.
 Clinton emotions not detectable by machine learning, focusses on jobs and affordable care, broad campaign
 Centroids are at the stage not very reliable either, probably because they don’t incorporate relevance sentiments and emotions (A discourse seeing positively Islam as a minor theme would be seen equivalent to one is which Islam is central and perceived negatively). We can notice however that for instance Sanders footprint is the furthest away from Trump’s footprint, but it might just be a coincidence. 
-Conclusions
+## Conclusions
 Even in its rudimentary form, political footprints 
 Word vector representations are the 21st century version of dictionnaries, or probably even more important for human civilization. Since they will be used by technology to guide our way of thinking. It is very tempting to consider them a reflection of reality, and to take the structuralist approach, but they are only way to understand things. 
