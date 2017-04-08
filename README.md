@@ -24,7 +24,7 @@ In the words of Claude Lévi-Strauss:
 A political footprint is vector-based representation of a political discourse in which each vector represents a word, with optionally some properties attached, such as a relevance, sentiment, and emotion. It is a subclass of [word vector models](https://www.tensorflow.org/tutorials/word2vec) (or word embeddings) which have the property of locating words with similar meaning closer to one another. Political footprints provide thus a way to “map” semantically a political discourse.
 Political footprints are focussing exclusively on what a statement or speaker says. They are thus very different from popular social media word cloud analsysis that focus typically on twitter or news trends. The emphasis is on what a speaker has in his or her control.
 
-[[https://github.com/username/repository/blob/master/img/octocat.png|alt=octocat]]
+[[https://github.com/Plural-thinktank/pfootprint/blob/master/images/footprints.png]]
 
 The current implementation of these political footprints is based on the following technologies:
 IBM Watson natural language understanding: returns a list of keywords and entities included in a text, with for each a relevance, sentiment, and emotion score.
