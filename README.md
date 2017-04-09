@@ -91,9 +91,11 @@ Notes:
 It is at the stage already possible to make some analsysis (fairly well established method). Here is for instance a comparison of key terms used in the Kyoto protocole and Paris agreeement (source:[United Nations Framework Convention on Climate Change](http://newsroom.unfccc.int/)). Word clouds have been rendered using [Wordle](http://www.wordle.net/).
 
 ![Kyotot Protocol](https://github.com/Plural-thinktank/pfootprint/blob/master/images/kyoto-protocol-climate-change.png)
+
 *Key terms used in Kyoto Protocol.*
 
 ![Paris agreement](https://github.com/Plural-thinktank/pfootprint/blob/master/images/Paris-agreement-climate-change.png)
+
 *Key terms used in Paris agreement.*
 
 Not surprisingly, the texts are mostly neutral, and perhaps a slightly more positive in the Paris agreement. The former puts en emphasis on change and intergovernemtal actions, and the later on economics and sustainibility.
@@ -137,47 +139,48 @@ Let’s now look at how we can practically use political footprints and avoid as
 2. Sort the words by relevance and pick up the top 5
 3. For each of these words, look inside tensorboard what are the 10 closest words.
 4. Select these words in the tsv file and use a tool such as [Wordle](http://www.wordle.net/) to visualise them, with their size = their relevance, and their color = emotion expressed during their occurances.
-* Undetected: #a8a8a8
-* Joy: #7afff7
-* Anger: #b33939
-* Disgust: #8f852c
-* Fear: #b55c2a
-* Sadness: #999370
+```
+Undetected: #a8a8a8
+Joy: #7afff7
+Anger: #b33939
+Disgust: #8f852c
+Fear: #b55c2a
+Sadness: #999370
+```
 
 ![Hillary Clinton - Affordable Care Act](https://github.com/Plural-thinktank/pfootprint/blob/master/images/2016-clinton-footprint-care.png)
-*Hillary Clinton’ topics that were related to the affordable care act (U.S. election televised debates). Read the full analysis.*
+
+*Hillary Clinton’ topics that were related to the affordable care act (U.S. election televised debates). Read the full analysis. See full example here (coming soon).*
 
 Notes:
-- The same heuristic has been applied to both 2008 and 2016 US elections with results that were surprisingly consistent with our intuition. Emotion detection wasn't as reliable. The following Google Spreadsheet formula has been applied in an attempt to reduce dissonances but emotions are still a hit and miss:
+- The same heuristic was applied to both 2008 and 2016 US elections and results were surprisingly consistent with our intuition. - Emotion detection wasn't as reliable. The following Google Spreadsheet formula was applied on tsv files in order to reduce noise, but emotions still need to be interpreted with care. The formula only keeps emotions that are consistent with sentiments (joy is only kept when sentiment is positive) and have big enough values. It is important to understand that an emotion used for a word is not necessary targetted at that word. For instance, an angry feeling detected when using the word people doesn’t mean that the discourse is expressing anger TOWARDS people, but that speaking about people generates some anger. Sarcasm is also way beyond IBM Watson current capabilities. 
+
 ```
+if(AND(F2>0.1,J2>G2,J2>H2,J2>I2,J2>K2),"Joy",if(AND(F2<-0.1,G2>0.4,G2>H2,G2>H2,G2>J2),"Anger",if(AND(F2<-0.1,H2>0.5,H2>G2,H2>I2,H2>J2),"Disgust",if(AND(F2<-0.1,I2>0.4,I2>G2,I2>H2,I2>J2),"Fear",if(AND(F2<-0.1,K2>0.4),"Sadness","Undetected")))))
+with the F column for sentiment, G for anger, H for disgust, I for fear, J for joy, and K for sadness.
 ```
+- As explained before, word similaries are not infered from the discourse but from the large corpus of text that was used to train our words (i.e. Wikipedia). Comparing distances (cosine similarity) in between words doesn't provide any information about a specific discourse, but only about the culture and language it is based on. Information lies in the choice of these words instead of others, their relevance and emotion attached. Machine learning techniques such as this one belong to stucturalism (read this paper for more details - coming soon). 
 
-The first word cloud is using only the information returned by IBM Watson.  As you can see, they most often succeed at isolating the most relevant themes for a text. Emotions are a bit less reliable and the equation above attemps to reduce noise. It is important to keep in mind that an emotion used for a word does not represent the feeling TOWARD this word. For instance, an angry feeling to describe people doesn’t mean that the discourse is showing some anger TO people, but that people are desribed in an anger context.
-The second word cloud is using words proximity and must be understood with care. Words proximity doesn’t belong to one discourse, but to a culture. What is significant however is the choice of these words in a discourse, their relevance and emotion attached. This is a structuralist approach where a culture and vocabulary is assumed static, and a discourse is picking some words to describe its stance. Comparing distances between words doesn’t give any information about a specific discourse, but only about the culture and language it is based on. Information lies in the choice of these words instead of others, their relevance and emotion associated per discourse. So, in our example, the proper way to describe this cloud is to say that Hillary Clinton has chosen these words to describe healthcare, to highlight … and attach some emotion.
-The difference between this word cloud and very similar others that you can see everywhere is that it has not been curated manually: it has been produced automatically based on word distances and then represents a relative objectivity. The researched is not imposing there themes, they are given by the script based on the heuristic described above.
 
-See full example
-
-Climate change: NOT human (except removing change)
-Intergovernemental smaller, choice of vocabulary different, 
-
-### Heuristic #2: compare how a theme is interpreted between different discourses
-Open the tensorboard aggregated tensor and explore all the concepts and keywords used in a corpus (during an election)
-Choose one related to your study. Good candidates are relatively general and ambigious words that can be used in very different ways in each discourse (e.g. “ethical”, “principle”, “values”, “freedom” that can mean very different things)
-For that word, select in tensorboard the 20 closest words and in how many discourses each one has been used. Choose the ones the most relevant that you wish to analyze.
-Compare using the same steps as the heuristic how each discourse is using them.
-This heuristic is useful to identify real paradigm differences between discourses or candidates. The power in this heuristic is that it can compare any text and they don’t necessary have to use the same terms. Because we use a pre-trained word space, we can define the closest words between words being used in different contexts, without any explicit link in each. 
+### Heuristic #2: compare how a theme is appropriated by each participant of a debate
+1. Open the tensorboard "Aggregated" tensor and choose a term or theme that you would like to study. Let's say we are interested in american "values".
+2. For this term, select in the aggregated tensor the 20 closest ones (i.e. "social", "civilization", "inequality", "liberty", etc.) and see how many participants have used them. Choose a couple of terms, ideally those that have been used by many candidates and that have many different meanings. "Social" and "interest" were picked in our 2016 US election example, but it could also have been “ethical”, “principle”, “values”, “freedom”: any term that can be used with a different set of others depending on a participant's political views.
+3. Compare related terms used by each candidate using the same steps as in heuristic #1.
 
 ![McCain social matters](https://github.com/Plural-thinktank/pfootprint/blob/master/images/Mccain-social.png)
-*John McCain’s topics that were related to social matters (2008 primaries debates).*
+
+*John McCain’s topics that were related to social matters (2008 primaries debates). See full example here (coming soon).*
 
 ![Sanders social matters](https://github.com/Plural-thinktank/pfootprint/blob/master/images/Sanders-social.png)
-*Bernie Sanders’ topics that were related to social matters (2016 primaries debates).*
 
-### Heurisitc #3: identify discourse styles and affinity
-Open each discourse using tensorboard. Visualze them based on relevance, sentiment, anger, etc. and spot major differences.
-Go to the centroids section and compare how close each discourses are.
-This heuristic has been the less conclusive based on the current implementation. Some rough analysis can be done but are subject to criticism. For instance, looking at the relevance of the Sanders political footprint highlights the fact is has been very much focussed to wall street, in comparison to Trump or Hillary who have used a more diverse vcabulary. This is not working all the time though.
+*Bernie Sanders’ topics that were related to social matters (2016 primaries debates). See full example here (coming soon).*
+
+This heuristic works great to identify fundamental differences in how speakers understand a topic or address a problem. One of its benefits is that relation between words have been defined at the GloVe level, we can thus compare texts that haven't necessary used the same terms to address a same issue. 
+
+### Heurisitc #3: sort discourses by style and affinity
+1. Open each discourse using tensorboard. Visualize them colored by relevance, sentiment, anger, joy, etc. 
+2. Open the tensorboard "Centroids" and compare how far they are from one another.
+No This heuristic has not been conclusive based on the current implementation. Some rough analysis can be done but are subject to criticism. For instance, looking at the relevance of the Sanders political footprint highlights the fact is has been very much focussed to wall street, in comparison to Trump or Hillary who have used a more diverse vcabulary. This is not working all the time though.
 Clinton emotions not detectable by machine learning, focusses on jobs and affordable care, broad campaign
 Centroids are at the stage not very reliable either, probably because they don’t incorporate relevance sentiments and emotions (A discourse seeing positively Islam as a minor theme would be seen equivalent to one is which Islam is central and perceived negatively). We can notice however that for instance Sanders footprint is the furthest away from Trump’s footprint, but it might just be a coincidence. 
 ## Conclusions
