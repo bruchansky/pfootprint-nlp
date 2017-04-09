@@ -1,0 +1,188 @@
+embeddings {
+  tensor_name: "General_Election-CLINTON:0"
+  metadata_path: "US-elections-2016/model/General_Election-CLINTON.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/General_Election-CLINTONsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "General_Election-KAINE:0"
+  metadata_path: "US-elections-2016/model/General_Election-KAINE.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/General_Election-KAINEsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "General_Election-PENCE:0"
+  metadata_path: "US-elections-2016/model/General_Election-PENCE.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/General_Election-PENCEsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "General_Election-TRUMP:0"
+  metadata_path: "US-elections-2016/model/General_Election-TRUMP.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/General_Election-TRUMPsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-CHAFEE:0"
+  metadata_path: "US-elections-2016/model/Primary_Democrats-CHAFEE.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Democrats-CHAFEEsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-CLINTON:0"
+  metadata_path: "US-elections-2016/model/Primary_Democrats-CLINTON.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Democrats-CLINTONsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-OMALLEY:0"
+  metadata_path: "US-elections-2016/model/Primary_Democrats-OMALLEY.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Democrats-OMALLEYsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-SANDERS:0"
+  metadata_path: "US-elections-2016/model/Primary_Democrats-SANDERS.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Democrats-SANDERSsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-WEBB:0"
+  metadata_path: "US-elections-2016/model/Primary_Democrats-WEBB.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Democrats-WEBBsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-BUSH:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-BUSH.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-BUSHsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-CARSON:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-CARSON.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-CARSONsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-CHRISTIE:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-CHRISTIE.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-CHRISTIEsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-CRUZ:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-CRUZ.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-CRUZsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-FIORINA:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-FIORINA.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-FIORINAsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-HUCKABEE:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-HUCKABEE.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-HUCKABEEsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-KASICH:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-KASICH.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-KASICHsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-PAUL:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-PAUL.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-PAULsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-RUBIO:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-RUBIO.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-RUBIOsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-TRUMP:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-TRUMP.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-TRUMPsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-WALKER:0"
+  metadata_path: "US-elections-2016/model/Primary_Republicans-WALKER.tsv"
+  sprite {
+    image_path: "US-elections-2016/model/Primary_Republicans-WALKERsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Aggregation:0"
+  metadata_path: "US-elections-2016/model/Aggregation.tsv"
+}
+embeddings {
+  tensor_name: "Centroids:0"
+  metadata_path: "US-elections-2016/model/Centroids.tsv"
+}
