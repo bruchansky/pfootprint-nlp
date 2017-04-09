@@ -5,7 +5,7 @@ A political footprint is vector-based representation of a political discourse in
 This toolkit provides heuristics on how to use pre-trained word vectors to analyse public declarations and political debates. Political footprints are unbiased in the sense that they are not relying on the researcher or journalist's political knowledge or beliefs. They are however very much dependent on the corpus they were trained with (Wikipedia, Google News, etc.), and more generally on the cultural context any political discourse is originating from.
 
 The scripts were designed with journalists and researchers in mind (cultural studies, political science). Only a personal computer and basic knowledge in coding (python) are required to make your own analysis. Assuming your data is well formatted, it is possible to analyse a full presidential election in a single day. This project is an initiative of [Plural](https://plural.world): a think tank dedicated to pluralism, and more specifically the coexistence of multiple cultural, economical, and political paradigms within a same society. Here are some examples of political footprints in action: 
-- Looking Back at the U.S. Election 2016: A President, but for what Country? (coming soon)
+- [Looking Back at the U.S. Election 2016: A President, but for what Country?](https://medium.com/plural-world/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country-949fcc1d8ad7)
 - Is the American Project Social or Economic? (coming soon)
 
 Please feel free to contribute to the project. Its official page is on the Plural think tank website, and will be updated with new contributions and applications: http://plural.world/research/political-footprints (link to be used in all references).
@@ -14,17 +14,16 @@ Here are two papers for anyone interested to read a bit more about this family o
 - Analysing Political Discourses Using Pre-Trained Word Vectors (computer/political sciences, coming soon)
 - Machine Learning: A Structuralist Discipline (philosophy, coming soon)
 
-
 In the words of Claude Lévi-Strauss:
 > « Quant aux créations de l'esprit humain, leur sens n'existe que par rapport à lui, et elles se confondent au désordre dès qu'il aura disparu »
 
 ## What is a political footprint?
 
 A political footprint is vector-based representation of a political discourse in which each vector represents a word, with optionally some properties attached, such as a relevance, sentiment, and emotion. It is a subclass of [word vector models](https://www.tensorflow.org/tutorials/word2vec) (or word embeddings) in which words with similar meanings are located close to one another.
-Political footprints are sorts of semantic maps applied to political discourse. They focus exclusively on what a statement or speaker says. They are, in this sense, very different from other popular word cloud analysis that focus on news articles and social media (i.e. tweets). The emphasis is on what a speaker has in his or her control.
+Political footprints are sorts of semantic maps applied to political discourse, they have been inspired by other initiatives such as [word2vec4everything](https://github.com/nchah/word2vec4everything). They focus exclusively on what a statement or speaker says. They are, in this sense, very different from other popular word cloud analysis that focus on news articles and social media (i.e. tweets). The emphasis is on what a speaker has in his or her control.
 
 ![political footprints](https://github.com/Plural-thinktank/pfootprint/blob/master/images/footprints.png)
-*From left to right: Sanders, Clinton, and Trump political footprints during 2016 U.S. election debates, with words similar to "people" highlighted.*
+*From left to right: Bernie Sanders, Hillary Clinton, and Donald Trump’s political footprints during 2016 U.S. election debates, with the closest words to “people” highlighted.*
 
 The current implementation is based on the following technologies:
 - [IBM Watson natural language understanding](https://www.ibm.com/watson/developercloud/natural-language-understanding.html): returns a list of entities and keywords included in a text, with for each a relevance, sentiment, and emotion score.
@@ -149,7 +148,7 @@ Sadness: #999370
 
 ![Hillary Clinton - Affordable Care Act](https://github.com/Plural-thinktank/pfootprint/blob/master/images/2016-clinton-footprint-care.png)
 
-*Hillary Clinton’ topics that were related to the affordable care act (U.S. election televised debates). Read the full analysis here (coming soon).*
+*Hillary Clinton’ topics that were related to the affordable care act (U.S. election televised debates). Read the full analysis [here](https://medium.com/plural-world/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country-949fcc1d8ad7).*
 
 Notes:
 - The same heuristic was applied to both 2008 and 2016 US elections and results were surprisingly consistent with our intuition. Emotion detection wasn't as reliable. The following Google Spreadsheet formula was applied to tsv files in order to reduce noise, the formula only keeps emotions that are consistent with sentiments (joy is only kept when sentiment is positive) and have big enough score. It is important to keep in mind that an emotion attached to a word is not necessary targeting that word. An angry feeling detected when using the word people doesn’t mean that the discourse is necessary expressing anger TOWARDS people, but that speaking about people generates some anger. Sarcasm is another example of why emotions detected by IBM Watson might fail. 
@@ -179,6 +178,7 @@ This heuristic worked great to identify fundamental differences in how US presid
 ### Heuristic #3: sort discourses by style and affinity
 1. Open each discourse using TensorBoard. Visualise them coloured by relevance, sentiment, anger, joy, etc. 
 2. Open the TensorBoard "Centroids" tensor and compare how far centroids are from one another.
+
 This heuristic has not been conclusive in the current implementation. A couple of interesting properties were revealed in our US election example, but not enough to exclude the possibility that they were mere coincidences:
 - Bernie Sanders's political footprint looked more focussed than the others: Wall Street was detected as being by far the most relevant of his topics. But this might have been due to a lack of synonyms to describe a same situation. We can’t conclude that Bernie Sanders was fundamentally more focussed.
 - Hillary Clinton's emotions were less visible in her political footprint. But as explained above, this might have been due to her use of sarcasms, and more subtle ways to express her emotions. 
