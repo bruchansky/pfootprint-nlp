@@ -34,7 +34,7 @@ The current implementation political footprints is based on the following techno
 - [Tensorflow and Tensorboard](https://www.tensorflow.org/): Open-source software library for Machine Intelligence, particularly useful in our case for word embeddings visualization.
 - [Wordle](http://www.wordle.net/): free online tool to visualize cloud clouds.
 
-![NLP tools](https://github.com/Plural-thinktank/pfootprint/blob/master/images/NLP-tools.png =200x)
+![NLP tools](https://github.com/Plural-thinktank/pfootprint/blob/master/images/NLP-tools.png)
 
 This toolkit is multi-language, please consult IBM Watson and Fasttext documentation to see what languages are supported. 
 
