@@ -1,0 +1,224 @@
+embeddings {
+  tensor_name: "General_Election-BIDEN:0"
+  metadata_path: "US-elections-2008/model/General_Election-BIDEN.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/General_Election-BIDENsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "General_Election-MCCAIN:0"
+  metadata_path: "US-elections-2008/model/General_Election-MCCAIN.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/General_Election-MCCAINsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "General_Election-OBAMA:0"
+  metadata_path: "US-elections-2008/model/General_Election-OBAMA.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/General_Election-OBAMAsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "General_Election-PALIN:0"
+  metadata_path: "US-elections-2008/model/General_Election-PALIN.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/General_Election-PALINsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-BIDEN:0"
+  metadata_path: "US-elections-2008/model/Primary_Democrats-BIDEN.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Democrats-BIDENsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-CLINTON:0"
+  metadata_path: "US-elections-2008/model/Primary_Democrats-CLINTON.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Democrats-CLINTONsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-DODD:0"
+  metadata_path: "US-elections-2008/model/Primary_Democrats-DODD.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Democrats-DODDsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-EDWARDS:0"
+  metadata_path: "US-elections-2008/model/Primary_Democrats-EDWARDS.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Democrats-EDWARDSsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-GRAVEL:0"
+  metadata_path: "US-elections-2008/model/Primary_Democrats-GRAVEL.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Democrats-GRAVELsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-KUCINICH:0"
+  metadata_path: "US-elections-2008/model/Primary_Democrats-KUCINICH.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Democrats-KUCINICHsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-OBAMA:0"
+  metadata_path: "US-elections-2008/model/Primary_Democrats-OBAMA.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Democrats-OBAMAsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Democrats-RICHARDSON:0"
+  metadata_path: "US-elections-2008/model/Primary_Democrats-RICHARDSON.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Democrats-RICHARDSONsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-BROWNBACK:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-BROWNBACK.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-BROWNBACKsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-GILMORE:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-GILMORE.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-GILMOREsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-GIULIANI:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-GIULIANI.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-GIULIANIsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-GOVTHOMPSON:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-GOVTHOMPSON.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-GOVTHOMPSONsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-HUCKABEE:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-HUCKABEE.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-HUCKABEEsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-HUNTER:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-HUNTER.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-HUNTERsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-KEYES:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-KEYES.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-KEYESsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-MCCAIN:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-MCCAIN.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-MCCAINsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-PAUL:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-PAUL.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-PAULsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-ROMNEY:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-ROMNEY.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-ROMNEYsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-SENTHOMPSON:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-SENTHOMPSON.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-SENTHOMPSONsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Primary_Republicans-TANCREDO:0"
+  metadata_path: "US-elections-2008/model/Primary_Republicans-TANCREDO.tsv"
+  sprite {
+    image_path: "US-elections-2008/model/Primary_Republicans-TANCREDOsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Aggregation:0"
+  metadata_path: "US-elections-2008/model/Aggregation.tsv"
+}
+embeddings {
+  tensor_name: "Centroids:0"
+  metadata_path: "US-elections-2008/model/Centroids.tsv"
+}
