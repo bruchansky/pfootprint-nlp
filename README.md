@@ -1,4 +1,4 @@
-# Political Footprints: Analysing Political Discourses Using Pre-Trained Word Vectors
+# Political Footprints: Political Discourse Analysis Using Pre-Trained Word Vectors
 
 A political footprint is vector-based representation of a political discourse in which each vector represents a word. Political footprints are computed using machine learning technologies, which allows for systematic and more objective political analysis. 
 
@@ -6,13 +6,13 @@ This toolkit provides heuristics on how to use pre-trained word vectors to analy
 
 The scripts were designed with journalists and researchers in mind (cultural studies, political science). Only a personal computer and basic knowledge in coding (python) are required to make your own analysis. Assuming your data is well formatted, it is possible to analyse a full presidential election in a single day. This project is an initiative of [Plural](https://plural.world): a think tank dedicated to pluralism, and more specifically the coexistence of multiple cultural, economical, and political paradigms within a same society. In times when little phrases and social media trends are more commented than any political vision, political footprints' aim is to help bring political discourse back at the center of public debate. Here are some examples of political footprints in action: 
 - [Looking Back at the U.S. Election 2016: A President, but for what Country?](https://medium.com/plural-world/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country-949fcc1d8ad7)
-- Is the American Project Social or Economic? (coming soon)
+- [Is the American Project a Social or Economic One?](https://medium.com/plural-world/is-the-american-project-a-social-or-economic-one-306615f1980f)
 
 Please feel free to contribute to the project. Its official page is on the Plural think tank website, and will be updated with new contributions and applications: http://plural.world/research/political-footprints (link to be used in all references).
 
 Here are two papers for anyone interested to read a bit more about this family of techniques, their assumptions, pros and cons, possible improvements and implications.
-- Analysing Political Discourses Using Pre-Trained Word Vectors (computer/political sciences, coming soon)
-- Machine Learning: A Structuralist Discipline (philosophy, coming soon)
+- [Political Discourse Analysis Using Pre-Trained Word Vectors](https://www.academia.edu/32461714/Political_Footprints_Political_Discourse_Analysis_using_Pre-Trained_Word_Vectors)(computer/political sciences)
+- [Machine Learning: A Structuralist Discipline](https://www.academia.edu/32461777/Machine_Learning_A_Structuralist_Discipline)(philosophy)
 
 In the words of Claude Lévi-Strauss:
 > « Quant aux créations de l'esprit humain, leur sens n'existe que par rapport à lui, et elles se confondent au désordre dès qu'il aura disparu »
@@ -158,7 +158,7 @@ Notes:
 if(AND(F2>0.1,J2>G2,J2>H2,J2>I2,J2>K2),"Joy",if(AND(F2<-0.1,G2>0.4,G2>H2,G2>H2,G2>J2),"Anger",if(AND(F2<-0.1,H2>0.5,H2>G2,H2>I2,H2>J2),"Disgust",if(AND(F2<-0.1,I2>0.4,I2>G2,I2>H2,I2>J2),"Fear",if(AND(F2<-0.1,K2>0.4),"Sadness","Undetected")))))
 with the F column for sentiment, G for anger, H for disgust, I for fear, J for joy, and K for sadness.
 ```
-- Machine learning techniques such as this one belong to structuralism : word similarities are not inferred from the discourse we analyse but from the large corpus of text that was used to train our words (i.e. Wikipedia). Comparing distances (cosine similarity) between words doesn't provide any information about a specific discourse, but only about the culture and language it is based on; information about the discourse lies in the choice of these words instead of others, their relevance and emotion attached. Read this paper for a more detailed analysis  - coming soon.
+- Machine learning techniques such as this one belong to structuralism : word similarities are not inferred from the discourse we analyse but from the large corpus of text that was used to train our words (i.e. Wikipedia). Comparing distances (cosine similarity) between words doesn't provide any information about a specific discourse, but only about the culture and language it is based on; information about the discourse lies in the choice of these words instead of others, their relevance and emotion attached. Read this [article](https://medium.com/plural-world/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country-949fcc1d8ad7) for a more detailed analysis.
 - A possible extension is to automate this heuristic using k-means clustering or other unsupervised machine learning techniques.
 
 ### Heuristic #2: compare how a theme is appropriated by each participant
@@ -168,11 +168,11 @@ with the F column for sentiment, G for anger, H for disgust, I for fear, J for j
 
 ![McCain social matters](https://github.com/Plural-thinktank/pfootprint/blob/master/images/Mccain-social.png)
 
-*John McCain’s topics that were related to social matters (2008 primaries debates). See full example here (coming soon).*
+*John McCain’s topics that were related to social matters (2008 primaries debates). See full example [here](https://medium.com/plural-world/is-the-american-project-a-social-or-economic-one-306615f1980f).*
 
 ![Sanders social matters](https://github.com/Plural-thinktank/pfootprint/blob/master/images/Sanders-social.png)
 
-*Bernie Sanders’ topics that were related to social matters (2016 primaries debates). See full example here (coming soon).*
+*Bernie Sanders’ topics that were related to social matters (2016 primaries debates). See full example [here](https://medium.com/plural-world/is-the-american-project-a-social-or-economic-one-306615f1980f).*
 
 This heuristic worked great to identify fundamental differences in how US presidential candidates understood a topic or addressed a problem. One of its benefits is that the relation between words have been defined at the GloVe level, we can thus compare texts that haven't necessary used the same terms to address a same issue. 
 
