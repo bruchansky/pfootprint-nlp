@@ -1,0 +1,26 @@
+embeddings {
+  tensor_name: "kyoto-protocol:0"
+  metadata_path: "Paris-agreement/model/kyoto-protocol.tsv"
+  sprite {
+    image_path: "Paris-agreement/model/kyoto-protocolsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "paris-agreement:0"
+  metadata_path: "Paris-agreement/model/paris-agreement.tsv"
+  sprite {
+    image_path: "Paris-agreement/model/paris-agreementsprite.gif"
+    single_image_dim: 100
+    single_image_dim: 100
+  }
+}
+embeddings {
+  tensor_name: "Aggregation:0"
+  metadata_path: "Paris-agreement/model/Aggregation.tsv"
+}
+embeddings {
+  tensor_name: "Centroids:0"
+  metadata_path: "Paris-agreement/model/Centroids.tsv"
+}
