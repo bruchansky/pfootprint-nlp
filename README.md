@@ -2,19 +2,15 @@
 
 A political footprint is a vector-based representation of a political discourse in which each vector represents a word. Political footprints are computed using machine learning technologies, which allows for a systematic and more objective political analysis. 
 
-This toolkit provides heuristics on how to use pre-trained word vectors to analyze public declarations and political debates. Political footprints are unbiased in the sense that they do not rely on the researcher’s or journalist's political knowledge or beliefs. They are, however, very much dependent on the corpus they were trained with (Wikipedia, Google News, etc.), and, more generally, on the cultural context all political discourse originates in.
+This toolkit provides heuristics on how to use pre-trained word vectors to analyze public declarations and political debates. Because political footprints compute semantic similarity based on large corpora of text, they lead to political discourse analysis that relies less on the researcher’s or journalist's political knowledge or beliefs. They are, however, very much dependent on the corpus they were trained with (Wikipedia, Google News, etc.), and, more generally, on the cultural context all political discourse originates in.
 
 The scripts were designed with journalists and researchers in mind (political science and cultural studies). You only require a personal computer and basic knowledge in coding (python) to produce your own analysis. Assuming your data is well formatted, it is possible to analyze a full presidential election in a single day.
 
 This project is an initiative from [Plural](https://plural.world): a think tank dedicated to pluralism, and more specifically the coexistence of multiple cultural, economic, and political paradigms within the same society. In times when soundbites and social media trends are more commented on than any political vision, political footprints aim to help place political discourse back in the center of public debate. Here are some examples of political footprints in action: 
-- [Looking Back at the U.S. Election 2016: A President, but for what Country?](https://medium.com/plural-world/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country-949fcc1d8ad7);
+- [Looking Back at the U.S. Election 2016: A President, but for what Country?](https://medium.com/plural-world/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country-949fcc1d8ad7).
 - [Is the American Project a Social or Economic One?](https://medium.com/plural-world/is-the-american-project-a-social-or-economic-one-306615f1980f).
 
 Please feel free to contribute to the project. Its homepage is located on the Plural website and will be updated with new contributions and applications: http://plural.world/research/political-footprints. Please use this link in all your references.
-
-Here are two papers for anyone interested in reading more about this family of techniques, their assumptions, possible improvements and implications.
-- [Political Discourse Analysis Using Pre-Trained Word Vectors](https://www.academia.edu/32461714/Political_Footprints_Political_Discourse_Analysis_using_Pre-Trained_Word_Vectors)(computer/political sciences)
-- [Machine Learning: A Structuralist Discipline](https://www.academia.edu/32461777/Machine_Learning_A_Structuralist_Discipline)(philosophy)
 
 In the words of Claude Lévi-Strauss:
 > « Quant aux créations de l'esprit humain, leur sens n'existe que par rapport à lui, et elles se confondent au désordre dès qu'il aura disparu »
@@ -27,7 +23,7 @@ A political footprint is a vector-based representation of a political discourse 
 Political footprints are like semantic maps applied to political discourse; they have been inspired by other initiatives such as [word2vec4everything](https://github.com/nchah/word2vec4everything). They focus exclusively on what a statement or speaker says. They are, in this sense, very different from other popular word cloud analyses that focus on news articles and social media (i.e. tweets). The emphasis is on what a speaker has in his or her control.
 
 ![political footprints](https://github.com/Plural-thinktank/pfootprint/blob/master/images/footprints.png)
-*From left to right: Bernie Sanders, Hillary Clinton, and Donald Trump’s political footprints during 2016 U.S. election debates, with the closest words to “people” highlighted.*
+*From left to right: Bernie Sanders, Hillary Clinton, and Donald Trump’s political footprints during 2016 U.S. election debates, with the closest words to “people” highlighted. Transcripts of all televised debates are available on the [American Presidency Project](http://www.presidency.ucsb.edu/debates.php).*
 
 The current implementation is based on the following technologies:
 - [IBM Watson natural language understanding](https://www.ibm.com/watson/developercloud/natural-language-understanding.html): returns a list of entities and keywords included in a text, with a relevance, sentiment, and emotion score for each one;
@@ -39,8 +35,6 @@ The current implementation is based on the following technologies:
 ![NLP tools](https://github.com/Plural-thinktank/pfootprint/blob/master/images/NLP-tools.png)
 
 This toolkit is multi-language, please consult IBM Watson and FastText documentation to see what languages are supported. 
-
-Examples below are based on 2016 U.S. elections. Transcripts of all televised debates are available on the [American Presidency Project](http://www.presidency.ucsb.edu/debates.php).
 
 ## Installation
 Scripts are written in python and use, among others, TensorFlow and IBM Watson libraries. TensorFlow provides some good documentation on how to install python and its library on your computer: [install python and TensorFlow](https://www.tensorflow.org/install/).
@@ -90,18 +84,6 @@ Notes:
 - using IBM Watson is convenient but it comes with a cost: there is not much control over or explanation of how the terms are selected and weighted. A possible improvement would be to use open source libraries;
 - two json files are created per text: one for its entities and one for its keywords. It is not clear how IBM Watson creates the two lists, and it is assumed that entities are more relevant than keywords (if a term exists in both lists, only the entity version is kept).
 
-It is at this stage already possible to produce some data analysis. Here is, for instance, a comparison of key terms used in the Kyoto protocol and the Paris agreement (source:[United Nations Framework Convention on Climate Change](http://newsroom.unfccc.int/)). Word clouds have been generated using [Wordle](http://www.wordle.net/).
-
-![Kyotot Protocol](https://github.com/Plural-thinktank/pfootprint/blob/master/images/kyoto-protocol-climate-change.png)
-
-*Key terms used in Kyoto Protocol.*
-
-![Paris agreement](https://github.com/Plural-thinktank/pfootprint/blob/master/images/Paris-agreement-climate-change.png)
-
-*Key terms used in Paris agreement.*
-
-Not surprisingly, the two texts have a neutral sentiment, with perhaps a slightly more positive tone in the Paris agreement. The former puts emphasis on change and intergovernmental actions, and the later on economics and sustainability.
-
 ## Create political footprints using TensorFlow
 At this stage, the only data that matter are the json files we have stored in our JSON-footprint directory. We are now going to leverage this information using pre-trained word vectors:
 ```
@@ -150,9 +132,16 @@ Fear: #b55c2a
 Sadness: #999370
 ```
 
+
+
+![Paris agreement](https://github.com/Plural-thinktank/pfootprint/blob/master/images/Paris-agreement-climate-change.png)
+
+*Climate-related terms used in Paris agreement (source:[United Nations Framework Convention on Climate Change](http://newsroom.unfccc.int/)). Word clouds have been generated using [Wordle](http://www.wordle.net/).*
+
+
 ![Hillary Clinton - Affordable Care Act](https://github.com/Plural-thinktank/pfootprint/blob/master/images/2016-clinton-footprint-care.png)
 
-*Hillary Clinton’s topics that related to the affordable care act (U.S. election televised debates). Read the full analysis [here](https://medium.com/plural-world/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country-949fcc1d8ad7).*
+*Hillary Clinton’s topics that related to the affordable care act (U.S. election televised debates). Transcripts of all televised debates are available on the [American Presidency Project](http://www.presidency.ucsb.edu/debates.php). Read the full analysis [here](https://medium.com/plural-world/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country-949fcc1d8ad7).*
 
 Notes:
 - the same heuristic was applied to both the 2008 and 2016 US elections and the results were surprisingly consistent with our intuition;
@@ -172,11 +161,11 @@ with the F column for sentiment, G for anger, H for disgust, I for fear, J for j
 
 ![McCain social matters](https://github.com/Plural-thinktank/pfootprint/blob/master/images/Mccain-social.png)
 
-*John McCain’s topics that related to social matters (2008 primaries debates). See full example [here](https://medium.com/plural-world/is-the-american-project-a-social-or-economic-one-306615f1980f).*
+*John McCain’s topics that related to social matters (2008 primaries debates). Transcripts of all televised debates are available on the [American Presidency Project](http://www.presidency.ucsb.edu/debates.php). See full example [here](https://medium.com/plural-world/is-the-american-project-a-social-or-economic-one-306615f1980f).*
 
 ![Sanders social matters](https://github.com/Plural-thinktank/pfootprint/blob/master/images/Sanders-social.png)
 
-*Bernie Sanders’ topics that related to social matters (2016 primaries debates). See full example [here](https://medium.com/plural-world/is-the-american-project-a-social-or-economic-one-306615f1980f).*
+*Bernie Sanders’ topics that related to social matters (2016 primaries debates). Transcripts of all televised debates are available on the [American Presidency Project](http://www.presidency.ucsb.edu/debates.php). See full example [here](https://medium.com/plural-world/is-the-american-project-a-social-or-economic-one-306615f1980f).*
 
 This heuristic was very effective in identifying fundamental differences in how US presidential candidates understood a topic or addressed a problem. One of its benefits is that the relationship between words has been defined at the GloVe level; we can thus compare texts that have not necessarily used the same terms to address the same issue. 
 
