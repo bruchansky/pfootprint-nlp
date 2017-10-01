@@ -7,10 +7,9 @@ This toolkit provides heuristics on how to use pre-trained word vectors to analy
 The scripts were designed with journalists and researchers in mind (political science and cultural studies). You only require a personal computer and basic knowledge in coding (python) to produce your own analysis. Assuming your data is well formatted, it is possible to analyze a full presidential election in a single day.
 
 This project is an initiative from [Plural](https://plural.world): a think tank dedicated to pluralism, and more specifically the coexistence of multiple cultural, economic, and political paradigms within the same society. In times when soundbites and social media trends are more commented on than any political vision, political footprints aim to help place political discourse back in the center of public debate. Here are some examples of political footprints in action: 
+- [Mission-Driven Innovation - From Empty Rhetoric to Meaningful Impact](https://plural.world/research/from-empty-rhetoric-to-meaningful-impact/).
 - [Looking Back at the U.S. Election 2016: A President, but for what Country?](https://medium.com/plural-world/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country-949fcc1d8ad7).
 - [Is the American Project a Social or Economic One?](https://medium.com/plural-world/is-the-american-project-a-social-or-economic-one-306615f1980f).
-
-Please feel free to contribute to the project. Its homepage is located on the Plural website and will be updated with new contributions and applications: http://plural.world/research/political-footprints. Please use this link in all your references.
 
 In the words of Claude Lévi-Strauss:
 > « Quant aux créations de l'esprit humain, leur sens n'existe que par rapport à lui, et elles se confondent au désordre dès qu'il aura disparu »
@@ -38,8 +37,6 @@ This toolkit is multi-language, please consult IBM Watson and FastText documenta
 
 ## Installation
 Scripts are written in python and use, among others, TensorFlow and IBM Watson libraries. TensorFlow provides some good documentation on how to install python and its library on your computer: [install python and TensorFlow](https://www.tensorflow.org/install/).
-
-Once both are installed (using Virtualenv on Mac for instance), running the scripts will prompt you with an error message if any library is missing, which can be easily fixed using the “sudo” command. 
 
 In addition, you need to download and unzip the pre-trained word vector model of your choice, for instance [glove.6B.zip](https://nlp.stanford.edu/projects/glove/) or [FastText](https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md), and put the files in your project’s folder.
 
