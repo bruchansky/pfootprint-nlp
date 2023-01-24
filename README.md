@@ -1,14 +1,14 @@
 # Political Footprints: Political Discourse Analysis Using Pre-Trained Word Vectors
 
-A political footprint is a vector-based representation of a political discourse in which each vector represents a word. Political footprints are computed using machine learning technologies, which allows for a systematic and more objective political analysis. 
+A political footprint is a vector-based representation of a political discourse in which each vector represents a word. Political footprints are computed using machine learning, which allows for a systematic and more objective political analysis. 
 
-This toolkit provides heuristics on how to use pre-trained word vectors to analyze public declarations and political debates. Because political footprints compute semantic similarity based on large corpora of text, they lead to political discourse analysis that relies less on the researcher’s or journalist's political knowledge or beliefs. They are, however, very much dependent on the corpus they were trained with (Wikipedia, Google News, etc.), and, more generally, on the cultural context all political discourse originates in.
+The Python toolkit provides heuristics on how to use pre-trained word vectors to analyze public declarations and political debates. Because political footprints compute semantic similarity based on large corpora of text, they lead to political discourse analysis that relies less on the researcher’s or journalist's political knowledge or beliefs. They are, however, very much dependent on the corpus they were trained with (Wikipedia, Google News, etc.), and, more generally, on the cultural context all political discourse originates in.
 
-The scripts were designed with journalists and researchers in mind (political science and cultural studies). You only require a personal computer and basic knowledge in coding (python) to produce your own analysis. Assuming your data is well formatted, it is possible to analyze a full presidential election in a single day.
+The scripts were designed with journalists and researchers in mind (political science and cultural studies). A personal computer and basic knowledge in coding are only required. Assuming data is well formatted, it is possible to analyze a full presidential election in a single day.
 
-This project is an initiative from [Plural](https://plural.world): a think tank dedicated to pluralism, and more specifically the coexistence of multiple cultural, economic, and political paradigms within the same society. In times when soundbites and social media trends are more commented on than any political vision, political footprints aim to help place political discourse back in the center of public debate. Here are some examples of political footprints in action: 
+In times when soundbites and social media trends are more commented on than any political vision, political footprints aim to help place political discourse back in the center of public debate. Here are some examples of political footprints in action: 
 - [Mission-Driven Innovation - From Empty Rhetoric to Meaningful Impact](https://plural.world/research/from-empty-rhetoric-to-meaningful-impact/).
-- [Looking Back at the U.S. Election 2016: A President, but for what Country?](https://medium.com/plural-world/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country-949fcc1d8ad7).
+- [Looking Back at the U.S. Election 2016: A President, but for what Country?](https://bruchansky.name/2017/04/09/looking-back-at-the-u-s-election-2016-a-president-but-for-what-country/).
 - [Is the American Project a Social or Economic One?](https://medium.com/plural-world/is-the-american-project-a-social-or-economic-one-306615f1980f).
 
 In the words of Claude Lévi-Strauss:
